@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>so … dass, ohne … zu, (an)statt … zu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Literata:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f5f8; --surface:#ffffff; --ink:#16202e; --muted:#5a6678; --line:#d5dbe4;
+  --c1:#1d5fd1; --c1b:#e3ecfb;
+  --c2:#c2312d; --c2b:#fbe6e5;
+  --c3:#9a6a00; --c3b:#fbf0d3;
+  --ok:#1b7a43; --bad:#b3261e;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f151e; --surface:#171f2b; --ink:#e8edf4; --muted:#9aa6b8; --line:#2a3546;
+    --c1:#7fb0ff; --c1b:#16284a; --c2:#ff8f8a; --c2b:#42191a; --c3:#f0c35a; --c3b:#3b2e0b;
+    --ok:#6fd49a; --bad:#ff8f87; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f151e; --surface:#171f2b; --ink:#e8edf4; --muted:#9aa6b8; --line:#2a3546;
+  --c1:#7fb0ff; --c1b:#16284a; --c2:#ff8f8a; --c2b:#42191a; --c3:#f0c35a; --c3b:#3b2e0b;
+  --ok:#6fd49a; --bad:#ff8f87; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.7 Literata,Georgia,serif}
+main{max-width:46rem;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+h1,h2,h3{font-family:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;line-height:1.15;margin:0}
+h1{font-size:clamp(2rem,6vw,3.1rem);font-weight:700;letter-spacing:-.02em}
+h1 span:nth-child(1){color:var(--c1)} h1 span:nth-child(2){color:var(--c2)} h1 span:nth-child(3){color:var(--c3)}
+.lead{color:var(--muted);margin:1rem 0 2rem;max-width:36rem}
+section{background:var(--surface);border:1px solid var(--line);border-left-width:6px;border-radius:6px;padding:1.5rem 1.4rem;margin:1.5rem 0}
+#s1{border-left-color:var(--c1)} #s2{border-left-color:var(--c2)} #s3{border-left-color:var(--c3)}
+h2{font-size:1.6rem;font-weight:700}
+#s1 h2{color:var(--c1)} #s2 h2{color:var(--c2)} #s3 h2{color:var(--c3)}
+.mean{color:var(--muted);margin:.25rem 0 1rem}
+h3{font-size:1.05rem;margin:1.4rem 0 .4rem}
+.formula{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:500;padding:.6rem .9rem;border-radius:4px;margin:.5rem 0 1rem;overflow-x:auto}
+#s1 .formula{background:var(--c1b)} #s2 .formula{background:var(--c2b)} #s3 .formula{background:var(--c3b)}
+ul{padding-left:1.2rem;margin:.4rem 0}
+li{margin:.3rem 0}
+.ex{margin:.6rem 0;padding-left:.9rem;border-left:2px solid var(--line)}
+.ex .de{font-size:1.1rem;font-weight:600}
+.k{border-radius:3px;padding:0 .25em}
+#s1 .k{background:var(--c1b)} #s2 .k{background:var(--c2b)} #s3 .k{background:var(--c3b)}
+.v{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.tip{background:var(--bg);border-radius:4px;padding:.7rem .9rem;margin:1rem 0 0;font-size:.97rem}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:.55rem .7rem;text-align:left;vertical-align:top}
+th{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+.q{padding:1rem 0;border-top:1px solid var(--line)}
+.q p{margin:0 0 .6rem}
+.opts{display:flex;flex-wrap:wrap;gap:.5rem}
+button{font:inherit;font-size:.95rem;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:.4rem .8rem;cursor:pointer}
+button:hover{border-color:var(--muted)}
+button:focus-visible{outline:3px solid var(--c1);outline-offset:2px}
+button.right{border-color:var(--ok);color:var(--ok)}
+button.wrong{border-color:var(--bad);color:var(--bad)}
+.fb{margin:.6rem 0 0;font-size:.95rem;min-height:1.2em}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<h1><span>so … dass</span>, <span>ohne … zu</span> und <span>(an)statt … zu</span></h1>
+<p class="lead">Drei Strukturen, die einem Satz Nuancen geben: eine Folge, das Fehlen einer Handlung und der Ersatz einer Handlung durch eine andere. In allen drei steht das konjugierte Verb bzw. der Infinitiv am Ende des Nebensatzes.</p>
+
+<section id="s1">
+  <h2>so … dass</h2>
+  <p class="mean">Drückt eine Folge aus, die durch einen Grad oder eine Intensität entsteht.</p>
+  <div class="formula">Hauptsatz + so + Adjektiv/Adverb, dass + Subjekt + … + konjugiertes Verb</div>
+  <div class="ex"><div class="de">Es war <span class="k">so kalt, dass</span> wir zu Hause <span class="v">blieben</span>.</div></div>
+  <div class="ex"><div class="de">Er spricht <span class="k">so schnell, dass</span> ich ihn nicht <span class="v">verstehe</span>.</div></div>
+  <div class="ex"><div class="de">Sie hat <span class="k">so viel gelernt, dass</span> sie die Prüfung <span class="v">bestanden hat</span>.</div></div>
+  <ul>
+    <li>Vor <em>dass</em> steht immer ein <strong>Komma</strong>.</li>
+    <li>Bei Nomen verwendet man <em>so viel / so viele</em>: <em>so viele Leute, dass …</em></li>
+  </ul>
+  <h3>sodass: nur das Ergebnis</h3>
+  <p>Mit <em>sodass</em> nennst du die Folge eines ganzen Satzes. Es gibt kein Adjektiv oder Adverb, das gesteigert wird. Der Hauptsatz ist vollständig, <em>sodass</em> schließt die Folge an.</p>
+  <div class="formula">Hauptsatz, sodass + Subjekt + … + konjugiertes Verb</div>
+  <div class="ex"><div class="de">Es regnete stark, <span class="k">sodass</span> die Straße <span class="v">überflutet war</span>.</div></div>
+  <div class="ex"><div class="de">Er hat den Wecker nicht gehört, <span class="k">sodass</span> er zu spät <span class="v">kam</span>.</div></div>
+  <div class="ex"><div class="de">Das Wetter war schlecht, <span class="k">sodass</span> wir zu Hause <span class="v">blieben</span>.</div></div>
+  <ul>
+    <li>Seit der Rechtschreibreform sind <em>sodass</em> und <em>so dass</em> beide richtig; <em>sodass</em> ist heute üblicher.</li>
+    <li>Vor <em>sodass</em> steht immer ein <strong>Komma</strong>, und das konjugierte Verb steht am Ende.</li>
+    <li><em>so … dass</em> betont den Grad (<em>so kalt, dass</em>). <em>sodass</em> nennt nur das Ergebnis (<em>Es war kalt, sodass …</em>).</li>
+    <li>Mit Komma vor <em>dass</em> kann <em>so</em> auch die Art und Weise meinen: <em>Er erklärt es so, dass jeder es versteht.</em> (auf eine Weise, die …)</li>
+  </ul>
+  <div class="tip"><strong>Nicht verwechseln:</strong> <em>damit</em> nennt die Absicht (wozu?), <em>so … dass</em> und <em>sodass</em> nennen das Ergebnis (was ist passiert?).<br><em>Ich spreche langsam, damit du mich verstehst.</em> (Ziel)<br><em>Ich spreche langsam, sodass du mich verstehst.</em> (Du verstehst mich tatsächlich.)</div>
+</section>
+
+<section id="s2">
+  <h2>ohne … zu</h2>
+  <p class="mean">Etwas geschieht, ohne dass eine andere Handlung stattfindet.</p>
+  <div class="formula">Hauptsatz, ohne + (Ergänzungen) + zu + Infinitiv</div>
+  <div class="ex"><div class="de">Er ging, <span class="k">ohne</span> sich <span class="k">zu</span> <span class="v">verabschieden</span>.</div></div>
+  <div class="ex"><div class="de">Sie kaufte das Auto, <span class="k">ohne</span> den Preis <span class="k">zu</span> <span class="v">kennen</span>.</div></div>
+  <div class="ex"><div class="de">Er hat die Wohnung verlassen, <span class="k">ohne</span> <span class="v">aufzuräumen</span>.</div></div>
+  <h3>Verschiedene Subjekte: ohne dass</h3>
+  <div class="ex"><div class="de">Sie ging, <span class="k">ohne dass</span> es jemand <span class="v">bemerkte</span>.</div></div>
+  <ul>
+    <li>Gleiches Subjekt in beiden Teilen → <em>ohne … zu</em>. Verschiedene Subjekte → <em>ohne dass</em>.</li>
+    <li>Bei trennbaren Verben steht <em>zu</em> in der Mitte: <em>auf<strong>zu</strong>räumen</em>, <em>mit<strong>zu</strong>nehmen</em>.</li>
+  </ul>
+</section>
+
+<section id="s3">
+  <h2>(an)statt … zu</h2>
+  <p class="mean">Eine Handlung ersetzt eine andere.</p>
+  <div class="formula">Hauptsatz, (an)statt + (Ergänzungen) + zu + Infinitiv</div>
+  <div class="ex"><div class="de"><span class="k">Anstatt zu</span> <span class="v">lernen</span>, schaut er Fernsehen.</div></div>
+  <div class="ex"><div class="de">Wir nehmen den Bus, <span class="k">statt</span> ein Taxi <span class="k">zu</span> <span class="v">bestellen</span>.</div></div>
+  <h3>Verschiedene Subjekte: (an)statt dass</h3>
+  <div class="ex"><div class="de"><span class="k">Statt dass</span> er mir <span class="v">hilft</span>, sitzt er nur da.</div></div>
+  <ul>
+    <li><em>anstatt</em> und <em>statt</em> bedeuten dasselbe; <em>statt</em> ist kürzer und häufiger.</li>
+    <li>Der Nebensatz kann <strong>vor</strong> oder nach dem Hauptsatz stehen. Steht er davor, beginnt der Hauptsatz mit dem Verb.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Überblick</h2>
+  <div class="scroll"><table>
+    <tr><th>Struktur</th><th>Bedeutung</th><th>Gleiches Subjekt</th><th>Verschiedene Subjekte</th></tr>
+    <tr><td>so … dass</td><td>Folge mit Steigerung</td><td colspan="2">immer <em>dass</em> + Verb am Ende</td></tr>
+    <tr><td>sodass</td><td>Folge (Ergebnis)</td><td colspan="2">immer <em>sodass</em> + Verb am Ende</td></tr>
+    <tr><td>ohne</td><td>nicht vorhandene Handlung</td><td>ohne … zu + Infinitiv</td><td>ohne dass</td></tr>
+    <tr><td>(an)statt</td><td>Ersatz einer Handlung</td><td>(an)statt … zu + Infinitiv</td><td>(an)statt dass</td></tr>
+  </table></div>
+</section>
+
+<section id="quiz">
+  <h2>Übung</h2>
+  <div class="q" data-a="so … dass"><p>Es war … heiß, … wir schwimmen gingen.</p><div class="opts"></div><p class="fb" aria-live="polite"></p></div>
+  <div class="q" data-a="ohne … zu"><p>Sie verließ den Raum, … ein Wort … sagen.</p><div class="opts"></div><p class="fb" aria-live="polite"></p></div>
+  <div class="q" data-a="(an)statt … zu"><p>… zu arbeiten, ging er ins Kino.</p><div class="opts"></div><p class="fb" aria-live="polite"></p></div>
+  <div class="q" data-a="ohne dass"><p>Er ging, … ich es merkte.</p><div class="opts"></div><p class="fb" aria-live="polite"></p></div>
+</section>
+</main>
+<script>
+(function(){
+  var opts=["so … dass","ohne … zu","(an)statt … zu","ohne dass"];
+  var why={
+    "so … dass":"Das Ergebnis folgt aus einem Grad (so heiß, dass …).",
+    "ohne … zu":"Gleiches Subjekt und „ohne“-Bedeutung: ohne … zu + Infinitiv.",
+    "(an)statt … zu":"Eine Handlung ersetzt eine andere, mit gleichem Subjekt.",
+    "ohne dass":"Verschiedene Subjekte (er / ich), deshalb ohne dass."
+  };
+  document.querySelectorAll(".q").forEach(function(q){
+    var box=q.querySelector(".opts"),fb=q.querySelector(".fb"),a=q.dataset.a;
+    opts.forEach(function(o){
+      var b=document.createElement("button");
+      b.type="button";b.textContent=o;
+      b.onclick=function(){
+        box.querySelectorAll("button").forEach(function(x){x.classList.remove("right","wrong")});
+        if(o===a){b.classList.add("right");fb.textContent="Richtig. "+why[a];}
+        else{b.classList.add("wrong");fb.textContent="Noch nicht. Denk an die Bedeutung und an das Subjekt beider Satzteile.";}
+      };
+      box.appendChild(b);
+    });
+  });
+})();
+</script>
+</body>
+</html>
